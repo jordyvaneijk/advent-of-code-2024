@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\AocDay1\AocDay1.csproj" />
+      <ProjectReference Include="..\AocDay2\AocDay2.csproj" />
     </ItemGroup>
 
     <ItemGroup>

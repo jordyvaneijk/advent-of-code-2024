@@ -2,21 +2,29 @@
 
 namespace AocDay1;
 
-public class Day1 : IDay
+public class Day1 : IDay<string>
 {
+    List<string> _lines = new();
+    
     public void Run()
     {
-        Process();
-        Console.WriteLine("Day 1");
+        ParseInput();
+        SolvePartOne();
+        SolvePartTwo();
+    }
+    
+    public void ParseInput()
+    {
+        var lines = File.ReadAllLines("Input/input_day1.txt");
+        _lines = lines.ToList();
     }
 
-    private void Process()
+    public void SolvePartOne()
     {
-        var lines = File.ReadAllLines("Input/input.txt");
         var leftNumbers = new List<int>();
         var rightNumbers = new List<int>();
 
-        foreach (var line in lines)
+        foreach (var line in _lines)
         {
             var parts = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             int left = int.Parse(parts[0]);
@@ -29,12 +37,34 @@ public class Day1 : IDay
         leftNumbers = leftNumbers.Order().ToList();
         rightNumbers = rightNumbers.Order().ToList();
         var totalDistance = FindDistance(leftNumbers, rightNumbers);
-        var totalSimilarity = FindSimilarity(leftNumbers, rightNumbers);
 
+        Console.WriteLine("Outcome for Day 1 part 1");
         Console.WriteLine($"Total distance: {totalDistance}");
-        Console.WriteLine($"Total similarity: {totalSimilarity}");
     }
 
+    public void SolvePartTwo()
+    {
+        var leftNumbers = new List<int>();
+        var rightNumbers = new List<int>();
+
+        foreach (var line in _lines)
+        {
+            var parts = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            int left = int.Parse(parts[0]);
+            int right = int.Parse(parts[1]);
+
+            leftNumbers.Add(left);
+            rightNumbers.Add(right);
+        }
+
+        leftNumbers = leftNumbers.Order().ToList();
+        rightNumbers = rightNumbers.Order().ToList();
+        var totalSimilarity = FindSimilarity(leftNumbers, rightNumbers);
+        
+        Console.WriteLine("Outcome for Day 1 part 2");
+        Console.WriteLine($"Total similarity: {totalSimilarity}");
+    }
+    
     private static int FindDistance(List<int> leftNumbers, List<int> rightNumbers)
     {
         int totalDistance = 0;
