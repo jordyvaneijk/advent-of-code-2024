@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AocDay1;
 using AocDay2;
+using AocDay3;
 using Common;
 using Spectre.Console;
 
@@ -15,6 +16,7 @@ namespace AdventOfCodeConsole
             {
                 { 1, new Day1() },
                 { 2, new Day2() },
+                { 3, new Day3() },
                 // Add other days here
             };
 
