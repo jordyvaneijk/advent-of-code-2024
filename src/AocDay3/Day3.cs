@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Common;
+using Spectre.Console;
 
 namespace AocDay3;
 
@@ -57,8 +58,14 @@ public class Day3 : IDay<string>
 
     public void Run()
     {
-        //ParseInput();
+        ParseInput();
+        AnsiConsole.Console.Clear();
+        AnsiConsole.Write(new FigletText("Day 3").Centered().Color(Color.Green));
         SolvePartOne();
-        //SolvePartTwo();
+        Console.WriteLine();
+        SolvePartTwo();
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold green]Press [red]Enter[/] to continue...[/]");
+        Console.ReadLine();
     }
 }

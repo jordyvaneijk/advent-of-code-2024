@@ -1,4 +1,6 @@
 ﻿using Common;
+using Spectre.Console;
+
 
 namespace AocDay2;
 
@@ -9,8 +11,14 @@ public class Day2 : IDay<string>
     public void Run()
     {
         ParseInput();
-        //SolvePartOne();
+        AnsiConsole.Console.Clear();
+        AnsiConsole.Write(new FigletText("Day 2").Centered().Color(Color.Green));
+        SolvePartOne();
+        Console.WriteLine();
         SolvePartTwo();
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold green]Press [red]Enter[/] to continue...[/]");
+        Console.ReadLine();
     }
 
     public void ParseInput()

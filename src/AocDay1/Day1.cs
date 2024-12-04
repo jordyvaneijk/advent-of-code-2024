@@ -1,4 +1,5 @@
 ﻿using Common;
+using Spectre.Console;
 
 namespace AocDay1;
 
@@ -8,9 +9,16 @@ public class Day1 : IDay<string>
     
     public void Run()
     {
+        
         ParseInput();
+        AnsiConsole.Console.Clear();
+        AnsiConsole.Write(new FigletText("Day 1").Centered().Color(Color.Green));
         SolvePartOne();
+        Console.WriteLine();
         SolvePartTwo();
+        Console.WriteLine();
+        AnsiConsole.MarkupLine("[bold green]Press [red]Enter[/] to continue...[/]");
+        Console.ReadLine();
     }
     
     public void ParseInput()
@@ -38,8 +46,8 @@ public class Day1 : IDay<string>
         rightNumbers = rightNumbers.Order().ToList();
         var totalDistance = FindDistance(leftNumbers, rightNumbers);
 
-        Console.WriteLine("Outcome for Day 1 part 1");
-        Console.WriteLine($"Total distance: {totalDistance}");
+        AnsiConsole.MarkupLine("[bold green]Outcome for Day 1 part 1[/]");
+        AnsiConsole.MarkupLine($"[bold green]Total distance: {totalDistance}[/]");
     }
 
     public void SolvePartTwo()
@@ -61,8 +69,8 @@ public class Day1 : IDay<string>
         rightNumbers = rightNumbers.Order().ToList();
         var totalSimilarity = FindSimilarity(leftNumbers, rightNumbers);
         
-        Console.WriteLine("Outcome for Day 1 part 2");
-        Console.WriteLine($"Total similarity: {totalSimilarity}");
+        AnsiConsole.MarkupLine("[bold green]Outcome for Day 1 part 2[/]");
+        AnsiConsole.MarkupLine($"[bold green]Total similarity: {totalSimilarity}[/]");
     }
     
     private static int FindDistance(List<int> leftNumbers, List<int> rightNumbers)
@@ -83,8 +91,6 @@ public class Day1 : IDay<string>
                 distance = right - left;
             }
 
-            Console.WriteLine($"{i} --> {distance}");
-
             totalDistance += distance;
         }
 
@@ -99,9 +105,6 @@ public class Day1 : IDay<string>
             int left = leftNumbers[i];
             int countedRight = rightNumbers.Count(x => x == left);
             int similarity = left * countedRight;
-
-
-            Console.WriteLine($"{i} --> {countedRight} * {left} = {similarity}");
 
             totalSimilarity += similarity;
         }

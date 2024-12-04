@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using AocDay1;
+﻿using AocDay1;
 using AocDay2;
 using AocDay3;
 using AocDay4;
