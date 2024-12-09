@@ -2,6 +2,9 @@
 using AocDay2;
 using AocDay3;
 using AocDay4;
+using AocDay5;
+using AocDay6;
+using AocDay9;
 using Common;
 using Spectre.Console;
 
@@ -17,6 +20,9 @@ namespace AdventOfCodeConsole
                 { 2, new Day2() },
                 { 3, new Day3() },
                 { 4, new Day4() },
+                { 5, new Day5() },
+                { 6, new Day6() },
+                { 9, new Day9() },
                 // Add other days here
             };
 
